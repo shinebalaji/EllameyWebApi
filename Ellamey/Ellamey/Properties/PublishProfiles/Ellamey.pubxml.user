@@ -1,0 +1,452 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>ftp://webapiproject.ellamey.online/webapiproject/</_PublishTargetUrl>
+    <EncryptedPassword>AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAAhxPoVr3BFUilhC3LBdaFHQAAAAACAAAAAAAQZgAAAAEAACAAAACJGHL+MWCi/cxQwWqAPIM7bNHuZMv2b3I39zKrEHG08QAAAAAOgAAAAAIAACAAAACzDf00/o1LCUpp090fa1ibjacicxb7wi2Hlu8WIMWpISAAAAAofSKqVNJaKXnHMH8hJw2cUso/rKja6CpR0Om+PiztykAAAAC7wno2IItN4wMohOsAmD4WdE5hx10Rj0iOMJsv7+qJAFGfwTTfGUWe9xn2E/VTgEebYxWdK5x8R/mSP7xhEmOX</EncryptedPassword>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="Areas/HelpPage/HelpPage.css">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Api.cshtml">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ApiGroup.cshtml">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/HelpPageApiModel.cshtml">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/ImageSample.cshtml">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/InvalidSample.cshtml">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Parameters.cshtml">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/Samples.cshtml">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/DisplayTemplates/TextSample.cshtml">
+      <publishTime>03/05/2019 08:20:03</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Help/Index.cshtml">
+      <publishTime>03/05/2019 08:20:02</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Shared/_Layout.cshtml">
+      <publishTime>03/05/2019 08:20:02</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/Web.config">
+      <publishTime>03/05/2019 08:20:02</publishTime>
+    </File>
+    <File Include="Areas/HelpPage/Views/_ViewStart.cshtml">
+      <publishTime>03/05/2019 08:19:28</publishTime>
+    </File>
+    <File Include="ASP.NET/ccavRequestHandler.aspx">
+      <publishTime>04/11/2019 15:52:42</publishTime>
+    </File>
+    <File Include="ASP.NET/ccavResponseHandler.aspx">
+      <publishTime>04/11/2019 13:45:56</publishTime>
+    </File>
+    <File Include="ASP.NET/dataFrom.html">
+      <publishTime>04/11/2019 14:03:41</publishTime>
+    </File>
+    <File Include="bin/Antlr3.Runtime.dll">
+      <publishTime>03/05/2019 08:20:04</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.compiled">
+      <publishTime>03/28/2019 13:59:27</publishTime>
+    </File>
+    <File Include="bin/App_global.asax.dll">
+      <publishTime>03/28/2019 13:59:27</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/de/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:00</publishTime>
+    </File>
+    <File Include="bin/de/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/Ellamey.dll">
+      <publishTime>05/26/2019 13:52:43</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.dll">
+      <publishTime>04/13/2019 11:33:20</publishTime>
+    </File>
+    <File Include="bin/EntityFramework.SqlServer.dll">
+      <publishTime>04/13/2019 11:33:20</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/es/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:00</publishTime>
+    </File>
+    <File Include="bin/es/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/fr/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:00</publishTime>
+    </File>
+    <File Include="bin/fr/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:00</publishTime>
+    </File>
+    <File Include="bin/it/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/ja/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:00</publishTime>
+    </File>
+    <File Include="bin/ja/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/ko/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:00</publishTime>
+    </File>
+    <File Include="bin/ko/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/MCPG.CCA.Util.dll">
+      <publishTime>04/11/2019 13:37:30</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.Edm.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Data.OData.dll">
+      <publishTime>03/05/2019 08:34:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Web.Infrastructure.dll">
+      <publishTime>03/05/2019 08:19:57</publishTime>
+    </File>
+    <File Include="bin/Newtonsoft.Json.dll">
+      <publishTime>03/05/2019 09:38:23</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/ru/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:01</publishTime>
+    </File>
+    <File Include="bin/ru/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/System.Net.Http.Formatting.dll">
+      <publishTime>03/05/2019 09:38:24</publishTime>
+    </File>
+    <File Include="bin/System.Spatial.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Cors.dll">
+      <publishTime>03/05/2019 09:38:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.Helpers.dll">
+      <publishTime>03/05/2019 08:19:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.Cors.dll">
+      <publishTime>03/05/2019 09:38:25</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.dll">
+      <publishTime>03/05/2019 09:38:24</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.OData.dll">
+      <publishTime>03/05/2019 08:34:03</publishTime>
+    </File>
+    <File Include="bin/System.Web.Http.WebHost.dll">
+      <publishTime>03/05/2019 08:20:00</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mvc.dll">
+      <publishTime>03/05/2019 08:19:58</publishTime>
+    </File>
+    <File Include="bin/System.Web.Optimization.dll">
+      <publishTime>03/05/2019 08:19:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.Razor.dll">
+      <publishTime>03/05/2019 08:19:55</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Deployment.dll">
+      <publishTime>03/05/2019 08:19:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.dll">
+      <publishTime>03/05/2019 08:19:56</publishTime>
+    </File>
+    <File Include="bin/System.Web.WebPages.Razor.dll">
+      <publishTime>03/05/2019 08:19:56</publishTime>
+    </File>
+    <File Include="bin/WebGrease.dll">
+      <publishTime>03/05/2019 08:20:05</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:01</publishTime>
+    </File>
+    <File Include="bin/zh-Hans/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:56</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.Edm.resources.dll">
+      <publishTime>03/05/2019 08:33:58</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/Microsoft.Data.OData.resources.dll">
+      <publishTime>03/05/2019 08:34:01</publishTime>
+    </File>
+    <File Include="bin/zh-Hant/System.Spatial.resources.dll">
+      <publishTime>03/05/2019 08:33:57</publishTime>
+    </File>
+    <File Include="Ccavenue/ccavRequestHandler.aspx">
+      <publishTime>05/13/2019 22:04:31</publishTime>
+    </File>
+    <File Include="Ccavenue/ccavResponseHandler.aspx">
+      <publishTime>04/15/2019 15:32:46</publishTime>
+    </File>
+    <File Include="Ccavenue/dataFrom.html">
+      <publishTime>04/11/2019 14:03:41</publishTime>
+    </File>
+    <File Include="Ccavenue/WebForm1.aspx">
+      <publishTime>04/15/2019 15:43:07</publishTime>
+    </File>
+    <File Include="Common/PasswordChanged.aspx">
+      <publishTime>04/29/2019 22:44:36</publishTime>
+    </File>
+    <File Include="Common/ResetPassword.aspx">
+      <publishTime>04/29/2019 23:03:17</publishTime>
+    </File>
+    <File Include="Content/bootstrap.css">
+      <publishTime>03/05/2019 08:19:41</publishTime>
+    </File>
+    <File Include="Content/bootstrap.min.css">
+      <publishTime>03/05/2019 08:19:41</publishTime>
+    </File>
+    <File Include="Content/Site.css">
+      <publishTime>03/05/2019 08:19:28</publishTime>
+    </File>
+    <File Include="Ellamey.edmx.diagram">
+      <publishTime>05/22/2019 21:01:41</publishTime>
+    </File>
+    <File Include="Email/Email.aspx">
+      <publishTime>05/13/2019 20:02:06</publishTime>
+    </File>
+    <File Include="favicon.ico">
+      <publishTime>03/05/2019 08:19:28</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.eot">
+      <publishTime>03/05/2019 08:19:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.svg">
+      <publishTime>03/05/2019 08:19:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.ttf">
+      <publishTime>03/05/2019 08:19:41</publishTime>
+    </File>
+    <File Include="fonts/glyphicons-halflings-regular.woff">
+      <publishTime>03/05/2019 08:19:41</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>03/05/2019 08:19:28</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>04/13/2019 11:33:29</publishTime>
+    </File>
+    <File Include="PHP/ccavMobileResponseHandler.php">
+      <publishTime>04/10/2019 20:01:15</publishTime>
+    </File>
+    <File Include="PHP/constant.php">
+      <publishTime>04/11/2019 15:55:49</publishTime>
+    </File>
+    <File Include="PHP/Crypto/cacert.pem">
+      <publishTime>04/10/2019 20:01:15</publishTime>
+    </File>
+    <File Include="PHP/Crypto/Crypto.php">
+      <publishTime>04/10/2019 20:01:15</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/AES.php">
+      <publishTime>04/10/2019 20:01:15</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/Base.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/Blowfish.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/DES.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/Hash.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/Random.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/RC2.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/RC4.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/Rijndael.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/RSA.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/TripleDES.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Crypt/Twofish.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/File/ANSI.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/File/ASN1.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/File/X509.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Math/BigInteger.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Net/SCP.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Net/SFTP.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Net/SFTP/Stream.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Net/SSH1.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/Net/SSH2.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/openssl.cnf">
+      <publishTime>04/10/2019 20:01:15</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/System/SSH/Agent.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/Crypto/phpseclib/System/SSH_Agent.php">
+      <publishTime>04/10/2019 20:01:16</publishTime>
+    </File>
+    <File Include="PHP/getRSA.php">
+      <publishTime>04/11/2019 15:57:12</publishTime>
+    </File>
+    <File Include="PHP/README.md">
+      <publishTime>04/10/2019 20:01:15</publishTime>
+    </File>
+    <File Include="PHP_WEB/ccavRequestHandler.php">
+      <publishTime>04/11/2019 13:55:02</publishTime>
+    </File>
+    <File Include="PHP_WEB/ccavResponseHandler.php">
+      <publishTime>04/11/2019 11:51:24</publishTime>
+    </File>
+    <File Include="PHP_WEB/Crypto.php">
+      <publishTime>04/11/2019 11:48:12</publishTime>
+    </File>
+    <File Include="PHP_WEB/dataFrom.htm">
+      <publishTime>04/11/2019 12:18:35</publishTime>
+    </File>
+    <File Include="PrecompiledApp.config">
+      <publishTime>03/28/2019 13:59:20</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.js">
+      <publishTime>03/05/2019 08:19:40</publishTime>
+    </File>
+    <File Include="Scripts/bootstrap.min.js">
+      <publishTime>03/05/2019 08:19:40</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.js">
+      <publishTime>03/05/2019 08:19:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.js">
+      <publishTime>03/05/2019 08:19:45</publishTime>
+    </File>
+    <File Include="Scripts/jquery-1.10.2.min.map">
+      <publishTime>03/05/2019 08:19:45</publishTime>
+    </File>
+    <File Include="Scripts/modernizr-2.6.2.js">
+      <publishTime>03/05/2019 08:20:04</publishTime>
+    </File>
+    <File Include="Scripts/respond.js">
+      <publishTime>03/05/2019 08:20:06</publishTime>
+    </File>
+    <File Include="Scripts/respond.min.js">
+      <publishTime>03/05/2019 08:20:06</publishTime>
+    </File>
+    <File Include="Scripts/_references.js">
+      <publishTime>03/05/2019 08:20:04</publishTime>
+    </File>
+    <File Include="Views/FoodCategory/Create.cshtml">
+      <publishTime>05/22/2019 23:00:33</publishTime>
+    </File>
+    <File Include="Views/FoodCategory/Delete.cshtml">
+      <publishTime>05/22/2019 23:00:34</publishTime>
+    </File>
+    <File Include="Views/FoodCategory/Details.cshtml">
+      <publishTime>05/22/2019 23:00:35</publishTime>
+    </File>
+    <File Include="Views/FoodCategory/Edit.cshtml">
+      <publishTime>05/22/2019 23:00:35</publishTime>
+    </File>
+    <File Include="Views/FoodCategory/Index.cshtml">
+      <publishTime>05/22/2019 23:00:36</publishTime>
+    </File>
+    <File Include="Views/FoodSubCategory/Create.cshtml">
+      <publishTime>05/22/2019 23:01:43</publishTime>
+    </File>
+    <File Include="Views/FoodSubCategory/Delete.cshtml">
+      <publishTime>05/22/2019 23:01:43</publishTime>
+    </File>
+    <File Include="Views/FoodSubCategory/Details.cshtml">
+      <publishTime>05/22/2019 23:01:44</publishTime>
+    </File>
+    <File Include="Views/FoodSubCategory/Edit.cshtml">
+      <publishTime>05/22/2019 23:01:44</publishTime>
+    </File>
+    <File Include="Views/FoodSubCategory/Index.cshtml">
+      <publishTime>05/22/2019 23:01:44</publishTime>
+    </File>
+    <File Include="Views/Shared/Error.cshtml">
+      <publishTime>03/05/2019 08:19:28</publishTime>
+    </File>
+    <File Include="Views/Shared/_Layout.cshtml">
+      <publishTime>03/05/2019 08:19:28</publishTime>
+    </File>
+    <File Include="Views/Web.config">
+      <publishTime>03/05/2019 08:19:28</publishTime>
+    </File>
+    <File Include="Views/_ViewStart.cshtml">
+      <publishTime>03/05/2019 08:19:28</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>05/26/2019 13:53:21</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

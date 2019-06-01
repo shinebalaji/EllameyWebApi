@@ -1,0 +1,821 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Schema Namespace="EllameyModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+  <EntityContainer Name="EllameyEntities" annotation:LazyLoadingEnabled="true">
+    <FunctionImport Name="sp_getrestaurants">
+      <Parameter Name="LATITUDE" Mode="In" Type="Double" />
+      <Parameter Name="LONGITUDE" Mode="In" Type="Double" />
+      <Parameter Name="Distance" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getrestaurants1">
+      <Parameter Name="LATITUDE" Mode="In" Type="Double" />
+      <Parameter Name="LONGITUDE" Mode="In" Type="Double" />
+      <Parameter Name="Distance" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getrestaurants2">
+      <Parameter Name="LATITUDE" Mode="In" Type="Double" />
+      <Parameter Name="LONGITUDE" Mode="In" Type="Double" />
+      <Parameter Name="Distance" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getgroceryshops">
+      <Parameter Name="LATITUDE" Mode="In" Type="Double" />
+      <Parameter Name="LONGITUDE" Mode="In" Type="Double" />
+      <Parameter Name="Distance" Mode="In" Type="Double" />
+    </FunctionImport>
+    <EntitySet Name="Countries" EntityType="EllameyModel.Country" />
+    <EntitySet Name="Grocers" EntityType="EllameyModel.Grocer" />
+    <EntitySet Name="GroceryItems" EntityType="EllameyModel.GroceryItem" />
+    <EntitySet Name="GroceryOrders" EntityType="EllameyModel.GroceryOrder" />
+    <EntitySet Name="GroceryOrderItems" EntityType="EllameyModel.GroceryOrderItem" />
+    <EntitySet Name="OrderStatusGrocers" EntityType="EllameyModel.OrderStatusGrocer" />
+    <EntitySet Name="OrderStatusRestaurateurs" EntityType="EllameyModel.OrderStatusRestaurateur" />
+    <EntitySet Name="PaymentMethods" EntityType="EllameyModel.PaymentMethod" />
+    <EntitySet Name="PaymentStatus" EntityType="EllameyModel.PaymentStatu" />
+    <EntitySet Name="RestaurantOrders" EntityType="EllameyModel.RestaurantOrder" />
+    <EntitySet Name="Restaurateurs" EntityType="EllameyModel.Restaurateur" />
+    <EntitySet Name="Roles" EntityType="EllameyModel.Role" />
+    <EntitySet Name="States" EntityType="EllameyModel.State" />
+    <EntitySet Name="Units" EntityType="EllameyModel.Unit" />
+    <AssociationSet Name="FK_Grocer_conutry" Association="EllameyModel.FK_Grocer_conutry">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Grocer" EntitySet="Grocers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restaurateur_conutry" Association="EllameyModel.FK_Restaurateur_conutry">
+      <End Role="Country" EntitySet="Countries" />
+      <End Role="Restaurateur" EntitySet="Restaurateurs" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Grocer_state" Association="EllameyModel.FK_Grocer_state">
+      <End Role="State" EntitySet="States" />
+      <End Role="Grocer" EntitySet="Grocers" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroceryItem_Grocer" Association="EllameyModel.FK_GroceryItem_Grocer">
+      <End Role="Grocer" EntitySet="Grocers" />
+      <End Role="GroceryItem" EntitySet="GroceryItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroceryOrder_Grocer" Association="EllameyModel.FK_GroceryOrder_Grocer">
+      <End Role="Grocer" EntitySet="Grocers" />
+      <End Role="GroceryOrder" EntitySet="GroceryOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroceryItem_Unit" Association="EllameyModel.FK_GroceryItem_Unit">
+      <End Role="Unit" EntitySet="Units" />
+      <End Role="GroceryItem" EntitySet="GroceryItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroceryOrderItems_GroceryItem" Association="EllameyModel.FK_GroceryOrderItems_GroceryItem">
+      <End Role="GroceryItem" EntitySet="GroceryItems" />
+      <End Role="GroceryOrderItem" EntitySet="GroceryOrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroceryOrder_OrderStatus" Association="EllameyModel.FK_GroceryOrder_OrderStatus">
+      <End Role="OrderStatusGrocer" EntitySet="OrderStatusGrocers" />
+      <End Role="GroceryOrder" EntitySet="GroceryOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroceryOrder_PaymentStatus" Association="EllameyModel.FK_GroceryOrder_PaymentStatus">
+      <End Role="PaymentStatu" EntitySet="PaymentStatus" />
+      <End Role="GroceryOrder" EntitySet="GroceryOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_GroceryOrderItems_GroceryOrder" Association="EllameyModel.FK_GroceryOrderItems_GroceryOrder">
+      <End Role="GroceryOrder" EntitySet="GroceryOrders" />
+      <End Role="GroceryOrderItem" EntitySet="GroceryOrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantOrder_OrderStatusRestaurateur" Association="EllameyModel.FK_RestaurantOrder_OrderStatusRestaurateur">
+      <End Role="OrderStatusRestaurateur" EntitySet="OrderStatusRestaurateurs" />
+      <End Role="RestaurantOrder" EntitySet="RestaurantOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantOrder_PaymentStatus" Association="EllameyModel.FK_RestaurantOrder_PaymentStatus">
+      <End Role="PaymentStatu" EntitySet="PaymentStatus" />
+      <End Role="RestaurantOrder" EntitySet="RestaurantOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantOrder_Restaurateur" Association="EllameyModel.FK_RestaurantOrder_Restaurateur">
+      <End Role="Restaurateur" EntitySet="Restaurateurs" />
+      <End Role="RestaurantOrder" EntitySet="RestaurantOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Restaurateur_state" Association="EllameyModel.FK_Restaurateur_state">
+      <End Role="State" EntitySet="States" />
+      <End Role="Restaurateur" EntitySet="Restaurateurs" />
+    </AssociationSet>
+    <EntitySet Name="Logins" EntityType="EllameyModel.Login" />
+    <AssociationSet Name="FK_GroceryOrder_Login" Association="EllameyModel.FK_GroceryOrder_Login">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="GroceryOrder" EntitySet="GroceryOrders" />
+    </AssociationSet>
+    <AssociationSet Name="FK_Login_Roles" Association="EllameyModel.FK_Login_Roles">
+      <End Role="Role" EntitySet="Roles" />
+      <End Role="Login" EntitySet="Logins" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantOrder_Login" Association="EllameyModel.FK_RestaurantOrder_Login">
+      <End Role="Login" EntitySet="Logins" />
+      <End Role="RestaurantOrder" EntitySet="RestaurantOrders" />
+    </AssociationSet>
+    <FunctionImport Name="sp_getgroceryshops1">
+      <Parameter Name="LATITUDE" Mode="In" Type="Double" />
+      <Parameter Name="LONGITUDE" Mode="In" Type="Double" />
+      <Parameter Name="Distance" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getrestaurants3">
+      <Parameter Name="LATITUDE" Mode="In" Type="Double" />
+      <Parameter Name="LONGITUDE" Mode="In" Type="Double" />
+      <Parameter Name="Distance" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getgroceryshops2" ReturnType="Collection(EllameyModel.sp_getgroceryshops_Result)">
+      <Parameter Name="LATITUDE" Mode="In" Type="Double" />
+      <Parameter Name="LONGITUDE" Mode="In" Type="Double" />
+      <Parameter Name="Distance" Mode="In" Type="Double" />
+    </FunctionImport>
+    <FunctionImport Name="sp_getrestaurants4" ReturnType="Collection(EllameyModel.sp_getrestaurants_Result)">
+      <Parameter Name="LATITUDE" Mode="In" Type="Double" />
+      <Parameter Name="LONGITUDE" Mode="In" Type="Double" />
+      <Parameter Name="Distance" Mode="In" Type="Double" />
+    </FunctionImport>
+    <EntitySet Name="FoodCategories" EntityType="EllameyModel.FoodCategory" />
+    <EntitySet Name="FoodItems" EntityType="EllameyModel.FoodItem" />
+    <EntitySet Name="FoodSubCategories" EntityType="EllameyModel.FoodSubCategory" />
+    <EntitySet Name="RestaurantOrderItems" EntityType="EllameyModel.RestaurantOrderItem" />
+    <AssociationSet Name="FK_FoodSubCategory_FoodCategory" Association="EllameyModel.FK_FoodSubCategory_FoodCategory">
+      <End Role="FoodCategory" EntitySet="FoodCategories" />
+      <End Role="FoodSubCategory" EntitySet="FoodSubCategories" />
+    </AssociationSet>
+    <AssociationSet Name="FK_FoodItem_Restaurateur" Association="EllameyModel.FK_FoodItem_Restaurateur">
+      <End Role="Restaurateur" EntitySet="Restaurateurs" />
+      <End Role="FoodItem" EntitySet="FoodItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantOrderItems_FoodItem" Association="EllameyModel.FK_RestaurantOrderItems_FoodItem">
+      <End Role="FoodItem" EntitySet="FoodItems" />
+      <End Role="RestaurantOrderItem" EntitySet="RestaurantOrderItems" />
+    </AssociationSet>
+    <AssociationSet Name="FK_RestaurantOrderItems_RestaurantOrder" Association="EllameyModel.FK_RestaurantOrderItems_RestaurantOrder">
+      <End Role="RestaurantOrder" EntitySet="RestaurantOrders" />
+      <End Role="RestaurantOrderItem" EntitySet="RestaurantOrderItems" />
+    </AssociationSet>
+  </EntityContainer>
+  <EntityType Name="Country">
+    <Key>
+      <PropertyRef Name="CountryId" />
+    </Key>
+    <Property Name="CountryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Grocers" Relationship="EllameyModel.FK_Grocer_conutry" FromRole="Country" ToRole="Grocer" />
+    <NavigationProperty Name="Restaurateurs" Relationship="EllameyModel.FK_Restaurateur_conutry" FromRole="Country" ToRole="Restaurateur" />
+  </EntityType>
+  <EntityType Name="Grocer">
+    <Key>
+      <PropertyRef Name="GrocerId" />
+    </Key>
+    <Property Name="GrocerId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="address1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="address2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="stateid" Type="Int32" Nullable="false" />
+    <Property Name="countryid" Type="Int32" Nullable="false" />
+    <Property Name="phonenumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="gstin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bankaccountname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bankname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ifsccode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="accountnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="postalcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="longitude" Type="Double" />
+    <Property Name="latitude" Type="Double" />
+    <Property Name="PhotoPath" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="EllameyModel.FK_Grocer_conutry" FromRole="Grocer" ToRole="Country" />
+    <NavigationProperty Name="State" Relationship="EllameyModel.FK_Grocer_state" FromRole="Grocer" ToRole="State" />
+    <NavigationProperty Name="GroceryItems" Relationship="EllameyModel.FK_GroceryItem_Grocer" FromRole="Grocer" ToRole="GroceryItem" />
+    <NavigationProperty Name="GroceryOrders" Relationship="EllameyModel.FK_GroceryOrder_Grocer" FromRole="Grocer" ToRole="GroceryOrder" />
+  </EntityType>
+  <EntityType Name="GroceryItem">
+    <Key>
+      <PropertyRef Name="GroceryItemId" />
+    </Key>
+    <Property Name="GroceryItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GrocerId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="weight" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="unitid" Type="Int32" Nullable="false" />
+    <Property Name="price" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsOutofstock" Type="Boolean" />
+    <Property Name="PhotoPath" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Grocer" Relationship="EllameyModel.FK_GroceryItem_Grocer" FromRole="GroceryItem" ToRole="Grocer" />
+    <NavigationProperty Name="Unit" Relationship="EllameyModel.FK_GroceryItem_Unit" FromRole="GroceryItem" ToRole="Unit" />
+    <NavigationProperty Name="GroceryOrderItems" Relationship="EllameyModel.FK_GroceryOrderItems_GroceryItem" FromRole="GroceryItem" ToRole="GroceryOrderItem" />
+  </EntityType>
+  <EntityType Name="GroceryOrder">
+    <Key>
+      <PropertyRef Name="GroceryOrderId" />
+    </Key>
+    <Property Name="GroceryOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GrocerId" Type="Int32" Nullable="false" />
+    <Property Name="OrderStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentStatusId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="LoginId" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionId" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="TrackingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankRefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Grocer" Relationship="EllameyModel.FK_GroceryOrder_Grocer" FromRole="GroceryOrder" ToRole="Grocer" />
+    <NavigationProperty Name="OrderStatusGrocer" Relationship="EllameyModel.FK_GroceryOrder_OrderStatus" FromRole="GroceryOrder" ToRole="OrderStatusGrocer" />
+    <NavigationProperty Name="PaymentStatu" Relationship="EllameyModel.FK_GroceryOrder_PaymentStatus" FromRole="GroceryOrder" ToRole="PaymentStatu" />
+    <NavigationProperty Name="GroceryOrderItems" Relationship="EllameyModel.FK_GroceryOrderItems_GroceryOrder" FromRole="GroceryOrder" ToRole="GroceryOrderItem" />
+    <NavigationProperty Name="Login" Relationship="EllameyModel.FK_GroceryOrder_Login" FromRole="GroceryOrder" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="GroceryOrderItem">
+    <Key>
+      <PropertyRef Name="GroceryOrderItemsId" />
+    </Key>
+    <Property Name="GroceryOrderItemsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="GroceryOrderId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="GroceryItemId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="GroceryItem" Relationship="EllameyModel.FK_GroceryOrderItems_GroceryItem" FromRole="GroceryOrderItem" ToRole="GroceryItem" />
+    <NavigationProperty Name="GroceryOrder" Relationship="EllameyModel.FK_GroceryOrderItems_GroceryOrder" FromRole="GroceryOrderItem" ToRole="GroceryOrder" />
+  </EntityType>
+  <EntityType Name="OrderStatusGrocer">
+    <Key>
+      <PropertyRef Name="OrderStatusId" />
+    </Key>
+    <Property Name="OrderStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderStatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="GroceryOrders" Relationship="EllameyModel.FK_GroceryOrder_OrderStatus" FromRole="OrderStatusGrocer" ToRole="GroceryOrder" />
+  </EntityType>
+  <EntityType Name="OrderStatusRestaurateur">
+    <Key>
+      <PropertyRef Name="OrderStatusId" />
+    </Key>
+    <Property Name="OrderStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="OrderStatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="RestaurantOrders" Relationship="EllameyModel.FK_RestaurantOrder_OrderStatusRestaurateur" FromRole="OrderStatusRestaurateur" ToRole="RestaurantOrder" />
+  </EntityType>
+  <EntityType Name="PaymentMethod">
+    <Key>
+      <PropertyRef Name="PaymentMethodId" />
+    </Key>
+    <Property Name="PaymentMethodId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="method" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="type" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="link" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+  </EntityType>
+  <EntityType Name="PaymentStatu">
+    <Key>
+      <PropertyRef Name="PaymentStatusId" />
+    </Key>
+    <Property Name="PaymentStatusId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="PaymentStatusName" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="GroceryOrders" Relationship="EllameyModel.FK_GroceryOrder_PaymentStatus" FromRole="PaymentStatu" ToRole="GroceryOrder" />
+    <NavigationProperty Name="RestaurantOrders" Relationship="EllameyModel.FK_RestaurantOrder_PaymentStatus" FromRole="PaymentStatu" ToRole="RestaurantOrder" />
+  </EntityType>
+  <EntityType Name="RestaurantOrder">
+    <Key>
+      <PropertyRef Name="RestaurantOrderId" />
+    </Key>
+    <Property Name="RestaurantOrderId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurateurId" Type="Int32" Nullable="false" />
+    <Property Name="OrderStatusId" Type="Int32" Nullable="false" />
+    <Property Name="Total" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PaymentStatusId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="LoginId" Type="Int32" Nullable="false" />
+    <Property Name="OrderDate" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="TransactionId" Type="String" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="TrackingId" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="BankRefNo" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="OrderStatus" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="OrderStatusRestaurateur" Relationship="EllameyModel.FK_RestaurantOrder_OrderStatusRestaurateur" FromRole="RestaurantOrder" ToRole="OrderStatusRestaurateur" />
+    <NavigationProperty Name="PaymentStatu" Relationship="EllameyModel.FK_RestaurantOrder_PaymentStatus" FromRole="RestaurantOrder" ToRole="PaymentStatu" />
+    <NavigationProperty Name="Restaurateur" Relationship="EllameyModel.FK_RestaurantOrder_Restaurateur" FromRole="RestaurantOrder" ToRole="Restaurateur" />
+    <NavigationProperty Name="Login" Relationship="EllameyModel.FK_RestaurantOrder_Login" FromRole="RestaurantOrder" ToRole="Login" />
+    <NavigationProperty Name="RestaurantOrderItems" Relationship="EllameyModel.FK_RestaurantOrderItems_RestaurantOrder" FromRole="RestaurantOrder" ToRole="RestaurantOrderItem" />
+  </EntityType>
+  <EntityType Name="Restaurateur">
+    <Key>
+      <PropertyRef Name="RestaurateurId" />
+    </Key>
+    <Property Name="RestaurateurId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="website" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="phonenumber" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="address1" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="address2" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="stateid" Type="Int32" Nullable="false" />
+    <Property Name="countryid" Type="Int32" Nullable="false" />
+    <Property Name="gstin" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bankaccountname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="bankname" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="ifsccode" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="accountnumber" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="postalcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="latitude" Type="Double" />
+    <Property Name="longitude" Type="Double" />
+    <Property Name="PhotoPath" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <NavigationProperty Name="Country" Relationship="EllameyModel.FK_Restaurateur_conutry" FromRole="Restaurateur" ToRole="Country" />
+    <NavigationProperty Name="RestaurantOrders" Relationship="EllameyModel.FK_RestaurantOrder_Restaurateur" FromRole="Restaurateur" ToRole="RestaurantOrder" />
+    <NavigationProperty Name="State" Relationship="EllameyModel.FK_Restaurateur_state" FromRole="Restaurateur" ToRole="State" />
+    <NavigationProperty Name="FoodItems" Relationship="EllameyModel.FK_FoodItem_Restaurateur" FromRole="Restaurateur" ToRole="FoodItem" />
+  </EntityType>
+  <EntityType Name="Role">
+    <Key>
+      <PropertyRef Name="RoleId" />
+    </Key>
+    <Property Name="RoleId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RoleName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Logins" Relationship="EllameyModel.FK_Login_Roles" FromRole="Role" ToRole="Login" />
+  </EntityType>
+  <EntityType Name="State">
+    <Key>
+      <PropertyRef Name="StateId" />
+    </Key>
+    <Property Name="StateId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="Grocers" Relationship="EllameyModel.FK_Grocer_state" FromRole="State" ToRole="Grocer" />
+    <NavigationProperty Name="Restaurateurs" Relationship="EllameyModel.FK_Restaurateur_state" FromRole="State" ToRole="Restaurateur" />
+  </EntityType>
+  <EntityType Name="Unit">
+    <Key>
+      <PropertyRef Name="UnitId" />
+    </Key>
+    <Property Name="UnitId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="GroceryItems" Relationship="EllameyModel.FK_GroceryItem_Unit" FromRole="Unit" ToRole="GroceryItem" />
+  </EntityType>
+  <Association Name="FK_Grocer_conutry">
+    <End Type="EllameyModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="EllameyModel.Grocer" Role="Grocer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Grocer">
+        <PropertyRef Name="countryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restaurateur_conutry">
+    <End Type="EllameyModel.Country" Role="Country" Multiplicity="1" />
+    <End Type="EllameyModel.Restaurateur" Role="Restaurateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Country">
+        <PropertyRef Name="CountryId" />
+      </Principal>
+      <Dependent Role="Restaurateur">
+        <PropertyRef Name="countryid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Grocer_state">
+    <End Type="EllameyModel.State" Role="State" Multiplicity="1" />
+    <End Type="EllameyModel.Grocer" Role="Grocer" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Grocer">
+        <PropertyRef Name="stateid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroceryItem_Grocer">
+    <End Type="EllameyModel.Grocer" Role="Grocer" Multiplicity="1" />
+    <End Type="EllameyModel.GroceryItem" Role="GroceryItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grocer">
+        <PropertyRef Name="GrocerId" />
+      </Principal>
+      <Dependent Role="GroceryItem">
+        <PropertyRef Name="GrocerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroceryOrder_Grocer">
+    <End Type="EllameyModel.Grocer" Role="Grocer" Multiplicity="1" />
+    <End Type="EllameyModel.GroceryOrder" Role="GroceryOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Grocer">
+        <PropertyRef Name="GrocerId" />
+      </Principal>
+      <Dependent Role="GroceryOrder">
+        <PropertyRef Name="GrocerId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroceryItem_Unit">
+    <End Type="EllameyModel.Unit" Role="Unit" Multiplicity="1" />
+    <End Type="EllameyModel.GroceryItem" Role="GroceryItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Unit">
+        <PropertyRef Name="UnitId" />
+      </Principal>
+      <Dependent Role="GroceryItem">
+        <PropertyRef Name="unitid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroceryOrderItems_GroceryItem">
+    <End Type="EllameyModel.GroceryItem" Role="GroceryItem" Multiplicity="1" />
+    <End Type="EllameyModel.GroceryOrderItem" Role="GroceryOrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroceryItem">
+        <PropertyRef Name="GroceryItemId" />
+      </Principal>
+      <Dependent Role="GroceryOrderItem">
+        <PropertyRef Name="GroceryItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroceryOrder_OrderStatus">
+    <End Type="EllameyModel.OrderStatusGrocer" Role="OrderStatusGrocer" Multiplicity="1" />
+    <End Type="EllameyModel.GroceryOrder" Role="GroceryOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatusGrocer">
+        <PropertyRef Name="OrderStatusId" />
+      </Principal>
+      <Dependent Role="GroceryOrder">
+        <PropertyRef Name="OrderStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroceryOrder_PaymentStatus">
+    <End Type="EllameyModel.PaymentStatu" Role="PaymentStatu" Multiplicity="1" />
+    <End Type="EllameyModel.GroceryOrder" Role="GroceryOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentStatu">
+        <PropertyRef Name="PaymentStatusId" />
+      </Principal>
+      <Dependent Role="GroceryOrder">
+        <PropertyRef Name="PaymentStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_GroceryOrderItems_GroceryOrder">
+    <End Type="EllameyModel.GroceryOrder" Role="GroceryOrder" Multiplicity="1" />
+    <End Type="EllameyModel.GroceryOrderItem" Role="GroceryOrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="GroceryOrder">
+        <PropertyRef Name="GroceryOrderId" />
+      </Principal>
+      <Dependent Role="GroceryOrderItem">
+        <PropertyRef Name="GroceryOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantOrder_OrderStatusRestaurateur">
+    <End Type="EllameyModel.OrderStatusRestaurateur" Role="OrderStatusRestaurateur" Multiplicity="1" />
+    <End Type="EllameyModel.RestaurantOrder" Role="RestaurantOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="OrderStatusRestaurateur">
+        <PropertyRef Name="OrderStatusId" />
+      </Principal>
+      <Dependent Role="RestaurantOrder">
+        <PropertyRef Name="OrderStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantOrder_PaymentStatus">
+    <End Type="EllameyModel.PaymentStatu" Role="PaymentStatu" Multiplicity="1" />
+    <End Type="EllameyModel.RestaurantOrder" Role="RestaurantOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="PaymentStatu">
+        <PropertyRef Name="PaymentStatusId" />
+      </Principal>
+      <Dependent Role="RestaurantOrder">
+        <PropertyRef Name="PaymentStatusId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantOrder_Restaurateur">
+    <End Type="EllameyModel.Restaurateur" Role="Restaurateur" Multiplicity="1" />
+    <End Type="EllameyModel.RestaurantOrder" Role="RestaurantOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurateur">
+        <PropertyRef Name="RestaurateurId" />
+      </Principal>
+      <Dependent Role="RestaurantOrder">
+        <PropertyRef Name="RestaurateurId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Restaurateur_state">
+    <End Type="EllameyModel.State" Role="State" Multiplicity="1" />
+    <End Type="EllameyModel.Restaurateur" Role="Restaurateur" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="State">
+        <PropertyRef Name="StateId" />
+      </Principal>
+      <Dependent Role="Restaurateur">
+        <PropertyRef Name="stateid" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <EntityType Name="Login">
+    <Key>
+      <PropertyRef Name="LoginId" />
+    </Key>
+    <Property Name="LoginId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="UserName" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Password" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Email" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="isToRead" Type="Boolean" Nullable="false" />
+    <Property Name="RoleId" Type="Int32" Nullable="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="Name" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="PhoneNumber" Type="String" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="RestaurateurId" Type="Int32" />
+    <Property Name="GrocerId" Type="Int32" />
+    <Property Name="PhotoPath" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="Address1" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="Address2" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="postalcode" Type="String" MaxLength="10" FixedLength="false" Unicode="false" />
+    <Property Name="city" Type="String" MaxLength="100" FixedLength="false" Unicode="false" />
+    <Property Name="stateid" Type="Int32" />
+    <Property Name="countryid" Type="Int32" />
+    <NavigationProperty Name="GroceryOrders" Relationship="EllameyModel.FK_GroceryOrder_Login" FromRole="Login" ToRole="GroceryOrder" />
+    <NavigationProperty Name="Role" Relationship="EllameyModel.FK_Login_Roles" FromRole="Login" ToRole="Role" />
+    <NavigationProperty Name="RestaurantOrders" Relationship="EllameyModel.FK_RestaurantOrder_Login" FromRole="Login" ToRole="RestaurantOrder" />
+  </EntityType>
+  <Association Name="FK_GroceryOrder_Login">
+    <End Type="EllameyModel.Login" Role="Login" Multiplicity="1" />
+    <End Type="EllameyModel.GroceryOrder" Role="GroceryOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginId" />
+      </Principal>
+      <Dependent Role="GroceryOrder">
+        <PropertyRef Name="LoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_Login_Roles">
+    <End Type="EllameyModel.Role" Role="Role" Multiplicity="1" />
+    <End Type="EllameyModel.Login" Role="Login" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Role">
+        <PropertyRef Name="RoleId" />
+      </Principal>
+      <Dependent Role="Login">
+        <PropertyRef Name="RoleId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantOrder_Login">
+    <End Type="EllameyModel.Login" Role="Login" Multiplicity="1" />
+    <End Type="EllameyModel.RestaurantOrder" Role="RestaurantOrder" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Login">
+        <PropertyRef Name="LoginId" />
+      </Principal>
+      <Dependent Role="RestaurantOrder">
+        <PropertyRef Name="LoginId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <ComplexType Name="sp_getgroceryshops_Result">
+    <Property Type="Int32" Name="GrocerId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="city" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="website" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="String" Name="address1" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="address2" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="stateid" Nullable="false" />
+    <Property Type="Int32" Name="countryid" Nullable="false" />
+    <Property Type="String" Name="phonenumber" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="gstin" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankaccountname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="bankname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ifsccode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="accountnumber" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="postalcode" Nullable="true" MaxLength="10" />
+    <Property Type="Double" Name="longitude" Nullable="true" />
+    <Property Type="Double" Name="latitude" Nullable="true" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="5000" />
+    <Property Type="Double" Name="distance" Nullable="true" />
+  </ComplexType>
+  <ComplexType Name="sp_getrestaurants_Result">
+    <Property Type="Int32" Name="RestaurateurId" Nullable="false" />
+    <Property Type="String" Name="Name" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="city" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="website" Nullable="true" MaxLength="100" />
+    <Property Type="String" Name="phonenumber" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="email" Nullable="false" MaxLength="50" />
+    <Property Type="Int32" Name="CreatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="CreatedDate" Nullable="true" Precision="23" />
+    <Property Type="Int32" Name="UpdatedBy" Nullable="true" />
+    <Property Type="DateTime" Name="UpdatedDate" Nullable="true" Precision="23" />
+    <Property Type="Boolean" Name="IsDeleted" Nullable="true" />
+    <Property Type="String" Name="address1" Nullable="false" MaxLength="100" />
+    <Property Type="String" Name="address2" Nullable="false" MaxLength="100" />
+    <Property Type="Int32" Name="stateid" Nullable="false" />
+    <Property Type="Int32" Name="countryid" Nullable="false" />
+    <Property Type="String" Name="gstin" Nullable="true" MaxLength="50" />
+    <Property Type="String" Name="bankaccountname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="bankname" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="ifsccode" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="accountnumber" Nullable="false" MaxLength="50" />
+    <Property Type="String" Name="postalcode" Nullable="true" MaxLength="10" />
+    <Property Type="Double" Name="latitude" Nullable="true" />
+    <Property Type="Double" Name="longitude" Nullable="true" />
+    <Property Type="String" Name="PhotoPath" Nullable="true" MaxLength="5000" />
+    <Property Type="Double" Name="distance" Nullable="true" />
+  </ComplexType>
+  <EntityType Name="FoodCategory">
+    <Key>
+      <PropertyRef Name="FoodCategoryId" />
+    </Key>
+    <Property Name="FoodCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="FoodSubCategories" Relationship="EllameyModel.FK_FoodSubCategory_FoodCategory" FromRole="FoodCategory" ToRole="FoodSubCategory" />
+  </EntityType>
+  <EntityType Name="FoodItem">
+    <Key>
+      <PropertyRef Name="FoodItemId" />
+    </Key>
+    <Property Name="FoodItemId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurateurId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="Price" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="IsOutofstock" Type="Boolean" />
+    <Property Name="PhotoPath" Type="String" MaxLength="5000" FixedLength="false" Unicode="false" />
+    <Property Name="FoodCategoryId" Type="Int32" />
+    <Property Name="FoodSubCategoryId" Type="Int32" />
+    <NavigationProperty Name="Restaurateur" Relationship="EllameyModel.FK_FoodItem_Restaurateur" FromRole="FoodItem" ToRole="Restaurateur" />
+    <NavigationProperty Name="RestaurantOrderItems" Relationship="EllameyModel.FK_RestaurantOrderItems_FoodItem" FromRole="FoodItem" ToRole="RestaurantOrderItem" />
+  </EntityType>
+  <EntityType Name="FoodSubCategory">
+    <Key>
+      <PropertyRef Name="FoodSubCategoryId" />
+    </Key>
+    <Property Name="FoodSubCategoryId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="FoodCategoryId" Type="Int32" Nullable="false" />
+    <Property Name="Name" Type="String" Nullable="false" MaxLength="250" FixedLength="false" Unicode="false" />
+    <Property Name="Description" Type="String" MaxLength="500" FixedLength="false" Unicode="true" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <NavigationProperty Name="FoodCategory" Relationship="EllameyModel.FK_FoodSubCategory_FoodCategory" FromRole="FoodSubCategory" ToRole="FoodCategory" />
+  </EntityType>
+  <EntityType Name="RestaurantOrderItem">
+    <Key>
+      <PropertyRef Name="RestaurantOrderItemsId" />
+    </Key>
+    <Property Name="RestaurantOrderItemsId" Type="Int32" Nullable="false" annotation:StoreGeneratedPattern="Identity" />
+    <Property Name="RestaurantOrderId" Type="Int32" Nullable="false" />
+    <Property Name="Quantity" Type="Int32" Nullable="false" />
+    <Property Name="Price" Type="String" Nullable="false" MaxLength="50" FixedLength="false" Unicode="false" />
+    <Property Name="CreatedBy" Type="Int32" />
+    <Property Name="CreatedDate" Type="DateTime" Precision="3" />
+    <Property Name="UpdatedBy" Type="Int32" />
+    <Property Name="UpdatedDate" Type="DateTime" Precision="3" />
+    <Property Name="IsDeleted" Type="Boolean" />
+    <Property Name="FoodItemId" Type="Int32" Nullable="false" />
+    <NavigationProperty Name="FoodItem" Relationship="EllameyModel.FK_RestaurantOrderItems_FoodItem" FromRole="RestaurantOrderItem" ToRole="FoodItem" />
+    <NavigationProperty Name="RestaurantOrder" Relationship="EllameyModel.FK_RestaurantOrderItems_RestaurantOrder" FromRole="RestaurantOrderItem" ToRole="RestaurantOrder" />
+  </EntityType>
+  <Association Name="FK_FoodSubCategory_FoodCategory">
+    <End Type="EllameyModel.FoodCategory" Role="FoodCategory" Multiplicity="1" />
+    <End Type="EllameyModel.FoodSubCategory" Role="FoodSubCategory" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodCategory">
+        <PropertyRef Name="FoodCategoryId" />
+      </Principal>
+      <Dependent Role="FoodSubCategory">
+        <PropertyRef Name="FoodCategoryId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_FoodItem_Restaurateur">
+    <End Type="EllameyModel.Restaurateur" Role="Restaurateur" Multiplicity="1" />
+    <End Type="EllameyModel.FoodItem" Role="FoodItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="Restaurateur">
+        <PropertyRef Name="RestaurateurId" />
+      </Principal>
+      <Dependent Role="FoodItem">
+        <PropertyRef Name="RestaurateurId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantOrderItems_FoodItem">
+    <End Type="EllameyModel.FoodItem" Role="FoodItem" Multiplicity="1" />
+    <End Type="EllameyModel.RestaurantOrderItem" Role="RestaurantOrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="FoodItem">
+        <PropertyRef Name="FoodItemId" />
+      </Principal>
+      <Dependent Role="RestaurantOrderItem">
+        <PropertyRef Name="FoodItemId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+  <Association Name="FK_RestaurantOrderItems_RestaurantOrder">
+    <End Type="EllameyModel.RestaurantOrder" Role="RestaurantOrder" Multiplicity="1" />
+    <End Type="EllameyModel.RestaurantOrderItem" Role="RestaurantOrderItem" Multiplicity="*" />
+    <ReferentialConstraint>
+      <Principal Role="RestaurantOrder">
+        <PropertyRef Name="RestaurantOrderId" />
+      </Principal>
+      <Dependent Role="RestaurantOrderItem">
+        <PropertyRef Name="RestaurantOrderId" />
+      </Dependent>
+    </ReferentialConstraint>
+  </Association>
+</Schema>
